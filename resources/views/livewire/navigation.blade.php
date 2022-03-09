@@ -39,7 +39,7 @@
                         <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                             aria-current="page">Dashboard</a>
                         @foreach ($categories as $category)
-                            <a href="#"
+                            <a href="{{route('posts.category', $category)}}"
                                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ $category->name }}</a>
                         @endforeach
                     </div>
@@ -101,7 +101,7 @@
     <div class="sm:hidden" id="mobile-menu" x-show="open" x-on:click.away="open = false">
         <div class="px-2 pt-2 pb-3 space-y-1">
             @foreach ($categories as $category)
-                <a href="#"
+                <a href="{{route('posts.category', $category)}}"
                     class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ $category->name }}</a>
             @endforeach
         </div>
