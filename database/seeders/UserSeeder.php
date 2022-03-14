@@ -20,6 +20,6 @@ class UserSeeder extends Seeder
             'email' => 'victor.aranaf92@gmail.com',
             'password' => bcrypt('12345678')
         ]);
-        User::factory(99)->create();
+        User::factory(9)->create();
     }
 }
