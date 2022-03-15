@@ -8,6 +8,7 @@ use App\Models\Tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
+use Database\Seeders\RolSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         Storage::deleteDirectory('public/posts');
         Storage::makeDirectory('public/posts');
+        $this->call(RolSeeder::class);
         $this->call(UserSeeder::class);
         Category::factory(4)->create();
         Tag::factory(8)->create();

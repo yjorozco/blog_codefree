@@ -70,6 +70,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+      
         return view('admin.posts.show', compact('post'));
     }
 
@@ -99,6 +100,7 @@ class PostController extends Controller
     public function update(PostRequest $request, Post $post)
     {
         //
+        $this->authorize('author',$post);
         $post->update($request->all());
         if($request->file('file')){
             $url = Storage::put('public/posts', $request->file('file'));
@@ -130,6 +132,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $this->authorize('author',$post);
         $post->delete();
         return redirect()->route('admin.posts.index', $post)->with('info', 'el post se elimino con exito');
 

@@ -18,4 +18,13 @@ class PostPolicy
         }
 
     }
+
+    public function published(?User $user, Post $post){
+      
+        if($post->status == 2){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
